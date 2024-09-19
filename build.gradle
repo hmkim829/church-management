@@ -1,28 +1,39 @@
 plugins {
+	id 'org.springframework.boot' version '3.3.4'    // Spring Boot 3.3.4 버전 사용
+	id 'io.spring.dependency-management' version '1.1.0'  // 의존성 관리 플러그인
 	id 'java'
-	id 'org.springframework.boot' version '3.3.4'
-	id 'io.spring.dependency-management' version '1.1.6'
 }
 
-group = 'com.example'
+group = 'com.example'    // 공통 group
 version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
 
-java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(17)
+repositories {
+	mavenCentral()    // 중앙 저장소에서 의존성 검색
+}
+
+allprojects {
+	repositories {
+		mavenCentral()    // 모든 하위 모듈에서도 Maven Central 사용
 	}
 }
 
-repositories {
-	mavenCentral()
-}
+subprojects {
+	apply plugin: 'java'   // 모든 하위 모듈에 java 플러그인 적용
+	apply plugin: 'org.springframework.boot'   // 모든 하위 모듈에 Spring Boot 적용
+	apply plugin: 'io.spring.dependency-management'   // Spring 의존성 관리 플러그인 적용
 
-dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-}
+	group = 'com.example'    // 하위 모듈의 group도 루트 프로젝트와 동일하게 설정
 
-tasks.named('test') {
-	useJUnitPlatform()
+	sourceCompatibility = '17'
+
+	// 공통 의존성 관리 설정 (모듈에서 override 가능)
+	dependencies {
+		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	}
+
+	// 하위 모듈에서 test 시, JUnit 5를 사용할 수 있도록 설정
+	test {
+		useJUnitPlatform()
+	}
 }
