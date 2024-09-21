@@ -1,1 +1,3 @@
 rootProject.name = 'church-management'
+include 'service-auth'
+

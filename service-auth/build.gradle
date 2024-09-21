@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot'  // Spring Boot 플러그인 추가
+    id 'io.spring.dependency-management'  // Spring 의존성 관리 플러그인
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()  // Maven 중앙 저장소에서 의존성 검색
+}
+
+dependencies {
+    // Spring Boot 및 웹 기능 관련 의존성 추가
+    implementation 'org.springframework.boot:spring-boot-starter-web'  // 웹 서버 및 REST API 지원
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'  // JPA 및 데이터베이스 연동
+
+    // 데이터베이스 및 마이그레이션 관련 의존성
+    implementation 'org.mariadb.jdbc:mariadb-java-client'  // MariaDB 드라이버
+    implementation 'org.flywaydb:flyway-core'  // Flyway 의존성
+    implementation "org.flywaydb:flyway-mysql" // Flyway 의존성
+
+    // Lombok 추가
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+
+    // 테스트 관련 의존성
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testCompileOnly 'org.projectlombok:lombok:1.18.28'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
+}
+
+test {
+    useJUnitPlatform()
+}
