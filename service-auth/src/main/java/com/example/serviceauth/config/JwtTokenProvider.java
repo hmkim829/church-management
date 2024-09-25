@@ -1,4 +1,4 @@
-package com.example.serviceauth.security.jwt;
+package com.example.serviceauth.config;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -18,17 +18,15 @@ public class JwtTokenProvider {
 
     // Spring의 @Value 애노테이션을 사용하여 환경 변수 값을 주입받음
     public JwtTokenProvider(@Value("${jwt.secret}") String secret) {
-        // Base64로 인코딩된 secret 값을 SecretKey로 변환
-        byte[] decodedKey = Base64.getDecoder().decode(secret);
+        byte[] decodedKey = Base64.getDecoder().decode(secret); // Base64로 인코딩된 secret 값을 SecretKey로 변환
         this.secretKey = new SecretKeySpec(decodedKey, 0, decodedKey.length, "HmacSHA256");
     }
-
-    private final long validityInMilliseconds = 3600000;  // 1시간
 
     // JWT 토큰 생성
     public String createToken(String loginId) {
         Claims claims = Jwts.claims().setSubject(loginId);  // 토큰에 사용자 정보를 저장
         Date now = new Date();
+        long validityInMilliseconds = 3600000; // 1시간
         Date validity = new Date(now.getTime() + validityInMilliseconds);  // 만료 시간 설정
 
         return Jwts.builder()
