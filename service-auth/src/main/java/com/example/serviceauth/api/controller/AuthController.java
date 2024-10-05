@@ -1,8 +1,8 @@
-package com.example.serviceauth.controller;
+package com.example.serviceauth.api.controller;
 
-import com.example.serviceauth.controller.request.AuthRegisterRequest;
-import com.example.serviceauth.facade.AuthFacade;
-import com.example.serviceauth.user.entity.User;
+import com.example.serviceauth.api.request.AuthRegisterRequest;
+import com.example.serviceauth.application.facade.AuthFacade;
+import com.example.serviceauth.domain.user.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +14,7 @@ public class AuthController {
 
     private final AuthFacade authFacade;
 
-    // 회원가입 엔드포인트
+    // 회원가입
     @PostMapping("/register")
     public ResponseEntity<User> register(@RequestBody AuthRegisterRequest request) {
 

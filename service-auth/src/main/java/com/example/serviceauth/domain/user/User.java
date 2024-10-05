@@ -1,6 +1,6 @@
-package com.example.serviceauth.user.entity;
+package com.example.serviceauth.domain.user;
 
-import com.example.serviceauth.common.entity.BaseEntity;
+import com.example.serviceauth.domain.common.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

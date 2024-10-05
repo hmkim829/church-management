@@ -15,6 +15,6 @@ public enum AuthErrorCode {
 
     ;
 
-    private final int status;
+    private final int code;
     private final String message;
 }

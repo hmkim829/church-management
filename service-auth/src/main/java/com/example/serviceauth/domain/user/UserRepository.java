@@ -1,6 +1,5 @@
-package com.example.serviceauth.user.repository;
+package com.example.serviceauth.domain.user;
 
-import com.example.serviceauth.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

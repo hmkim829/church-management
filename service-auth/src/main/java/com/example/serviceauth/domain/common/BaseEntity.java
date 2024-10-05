@@ -1,4 +1,4 @@
-package com.example.serviceauth.common.entity;
+package com.example.serviceauth.domain.common;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;

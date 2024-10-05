@@ -1,4 +1,4 @@
-package com.example.serviceauth.controller.request;
+package com.example.serviceauth.api.request;
 
 import lombok.Getter;
 

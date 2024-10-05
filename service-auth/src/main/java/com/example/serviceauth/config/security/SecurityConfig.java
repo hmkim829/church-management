@@ -1,4 +1,4 @@
-package com.example.serviceauth.config;
+package com.example.serviceauth.config.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,7 +1,7 @@
-package com.example.serviceauth.facade;
+package com.example.serviceauth.application.facade;
 
-import com.example.serviceauth.user.entity.User;
-import com.example.serviceauth.user.service.UserService;
+import com.example.serviceauth.application.service.UserService;
+import com.example.serviceauth.domain.user.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

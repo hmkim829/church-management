@@ -13,7 +13,7 @@ public class AuthExceptionHandler {
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(AuthErrorResponse.builder()
-                        .status(ex.getAuthErrorCode().getStatus())
+                        .code(ex.getAuthErrorCode().getCode())
                         .message(ex.getAuthErrorCode().getMessage())
                         .build());
     }

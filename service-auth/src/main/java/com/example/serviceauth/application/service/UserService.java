@@ -1,9 +1,9 @@
-package com.example.serviceauth.user.service;
+package com.example.serviceauth.application.service;
 
+import com.example.serviceauth.domain.user.User;
+import com.example.serviceauth.domain.user.UserRepository;
 import com.example.serviceauth.common.exception.AuthErrorCode;
 import com.example.serviceauth.common.exception.AuthException;
-import com.example.serviceauth.user.entity.User;
-import com.example.serviceauth.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
